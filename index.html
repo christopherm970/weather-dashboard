@@ -15,6 +15,34 @@
             <a class="navbar-brand">Weather Dashboard</a>
         </nav>
         
+        <main>
+            <div class="row">
+                <div class="col-3">
+                    <div class= "input-group">
+                        <input type='text' class="form-control" placeholder="Enter Your City">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">Button</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><span id="cityName"></span> - <span class="date"></span><span
+                                id="icon"></span></h5>
+                        </div>
+                        <ul class="list-group list-group-flush mb-2">
+                            <li class="list-group-item">Temperature: <span id="temp"></span> °F</li>
+                            <li class="list-group-item">Humidity: <span id="humid"></span> %</li>
+                            <li class="list-group-item">Wind Speed: <span id="wind"></span> mph</li>
+                            <li class="list-group-item">UV Index: <span id="uv" class="rounded border bg-danger text-white"></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
 
     
     
