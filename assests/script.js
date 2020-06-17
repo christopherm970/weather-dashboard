@@ -59,20 +59,33 @@ function getWeather(city){
             .then(function(forecastRes){
                 console.log(forecastRes)
                 
+                // Day One
                 tempF1 = (forecastRes.list[2].main.temp-273.15) * 1.80 +32;
                 $("#temp1").text(tempF1.toFixed(0));
                 $("#humid1").html(forecastRes.list[2].main.humidity)
-                // var dateOne= moment()
-                // .add(1,"days")
-                // .format("L");
-                // $("#date1").text(dateOne);
+                
+                // Day Two
+                tempF2 = (forecastRes.list[9].main.temp-273.15) * 1.80 +32;
+                $("#temp2").text(tempF2.toFixed(0));
+                $("#humid2").html(forecastRes.list[9].main.humidity)
 
-                // var icond5dayPath1=forecastRes.list[2].weather[0].icon;
-                // var icon5dayURL1 = "https://openweathermap.org/img/wn/" + icond5dayPath1 +"@2x.png";
+                // Day Three
+                tempF3 = (forecastRes.list[17].main.temp-273.15) * 1.80 +32;
+                $("#temp3").text(tempF3.toFixed(0));
+                $("#humid3").html(forecastRes.list[17].main.humidity)
 
-                // var iconDay1= $("<img>");
-                // iconDay1.attr("src", icon5dayURL1);
-                // $("#icon1").text(iconDay1);
+                // Day Four
+                tempF4 = (forecastRes.list[25].main.temp-273.15) * 1.80 +32;
+                $("#temp4").text(tempF4.toFixed(0));
+                $("#humid4").html(forecastRes.list[25].main.humidity)
+                
+                // Day Five
+                tempF5 = (forecastRes.list[33].main.temp-273.15) * 1.80 +32;
+                $("#temp5").text(tempF5.toFixed(0));
+                $("#humid5").html(forecastRes.list[33].main.humidity)
+                
+
+
             })
 
     })
