@@ -26,8 +26,8 @@ function getWeather(city){
         url: queryURL,
         method: "GET"
         }).then(function(response){
-            console.log(queryURL);
-            console.log(response);
+            // console.log(queryURL);
+            // console.log(response);
             
             cities.unshift(response.name);
 
@@ -53,7 +53,27 @@ function getWeather(city){
             $("#uv").text(responseUV.value)
         })
         
-        
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=505bc59551e545ee228f440eb0aa0ff2",
+            method: "GET"})
+            .then(function(forecastRes){
+                console.log(forecastRes)
+                
+                tempF1 = (forecastRes.list[2].main.temp-273.15) * 1.80 +32;
+                $("#temp1").text(tempF1.toFixed(0));
+                $("#humid1").html(forecastRes.list[2].main.humidity)
+                // var dateOne= moment()
+                // .add(1,"days")
+                // .format("L");
+                // $("#date1").text(dateOne);
+
+                // var icond5dayPath1=forecastRes.list[2].weather[0].icon;
+                // var icon5dayURL1 = "https://openweathermap.org/img/wn/" + icond5dayPath1 +"@2x.png";
+
+                // var iconDay1= $("<img>");
+                // iconDay1.attr("src", icon5dayURL1);
+                // $("#icon1").text(iconDay1);
+            })
 
     })
 }
