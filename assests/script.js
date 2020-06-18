@@ -1,5 +1,7 @@
 let apiKey = "&appid=505bc59551e545ee228f440eb0aa0ff2"
 let cities = localStorage.getItem("cities")
+let today= moment().format("LL")
+
     if(cities === null){
         cities = []
     }else{
@@ -19,6 +21,7 @@ let cities = localStorage.getItem("cities")
             cityListEl.append(button)
         }
     }
+
 function getWeather(city){
     
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + apiKey;
@@ -63,6 +66,11 @@ function getWeather(city){
                 tempF1 = (forecastRes.list[2].main.temp-273.15) * 1.80 +32;
                 $("#temp1").text(tempF1.toFixed(0));
                 $("#humid1").html(forecastRes.list[2].main.humidity)
+                
+                // UNABLE TO GET DATE TO WORK!
+                var dateOne = moment().format("LL");
+                $("#date1").text(dateOne)
+
                 
                 // Day Two
                 tempF2 = (forecastRes.list[9].main.temp-273.15) * 1.80 +32;
